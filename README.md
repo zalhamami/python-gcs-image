@@ -25,7 +25,7 @@ git clone https://github.com/zalhamami/python-gcs-image.git
 2. Install the requirements. (Flask)
 
 ```
-pip install -r requirements.txt -t lib --use-feature=2020-resolver
+pip install -r requirements.txt -t lib
 ```
 
 3. Deploy to App Engine.
