@@ -19,13 +19,13 @@ For more discussions on this topic, please refer to [issue #3](https://github.co
 1. Clone this repo.
 
 ```
-git clone https://github.com/albertcht/python-gcs-image.git
+git clone https://github.com/zalhamami/python-gcs-image.git
 ```
 
 2. Install the requirements. (Flask)
 
 ```
-pip install -r requirements.txt -t lib
+pip install -r requirements.txt -t lib --use-feature=2020-resolver
 ```
 
 3. Deploy to App Engine.
