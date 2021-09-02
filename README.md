@@ -28,7 +28,20 @@ git clone https://github.com/zalhamami/python-gcs-image.git
 pip install -r requirements.txt -t lib
 ```
 
-3. Deploy to App Engine.
+
+3. Copy configuration from config.py.example.
+
+```
+cp config.py.example config.py
+```
+
+4. Create secret key inside config.py.
+
+```
+SECRET_KEY=EXAMPLE_SECRET
+```
+
+4. Deploy to App Engine.
 
 ```
 gcloud app deploy
@@ -39,7 +52,7 @@ gcloud app deploy
 1. Get a serving url from existed file on Google Cloud Storage:
 
 ```
-curl https://PROJECT_NAME.appspot.com/image-url?bucket=mybuckey&image=image_name.jpg
+curl https://PROJECT_NAME.appspot.com/serving-url?bucket=mybuckey&image=image_name.jpg&secret_key=EXAMPLE_SECRET
 ```
 
 2. It will return a url that looks something like:
