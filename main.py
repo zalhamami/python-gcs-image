@@ -13,7 +13,7 @@ JSON_MIME_TYPE = 'application/json'
 
 app = Flask(__name__)
 
-@app.route('/image-url', methods=['GET'])
+@app.route('/serving-url', methods=['GET'])
 def image_url():
 	bucket = request.args.get('bucket')
 	image = request.args.get('image')
@@ -43,7 +43,7 @@ def image_url():
 		error = json.dumps({'error': 'There was a problem transforming the image. Ensure the GAE service account has access to the object in Google Cloud Storage.'})
 		return json_response(error, 400)
 
-	return json_response(json.dumps({'image_url': servingImage}))
+	return json_response(json.dumps({'url': servingImage}))
 
 def json_response(data='', status=200, headers=None):
 	headers = headers or {}
