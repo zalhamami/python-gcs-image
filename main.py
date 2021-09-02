@@ -9,12 +9,18 @@ from flask import make_response
 from google.appengine.ext import blobstore
 from google.appengine.api import images
 
+from config import SECRET_KEY
+
 JSON_MIME_TYPE = 'application/json'
 
 app = Flask(__name__)
 
 @app.route('/serving-url', methods=['GET'])
-def image_url():
+def serving_url():
+	err = check_secret()
+	if err:
+		return err
+
 	bucket = request.args.get('bucket')
 	image = request.args.get('image')
 
@@ -51,3 +57,12 @@ def json_response(data='', status=200, headers=None):
 		headers['Content-Type'] = JSON_MIME_TYPE
 
 	return make_response(data, status, headers)
+
+def check_secret():
+	secret = request.args.get('secret_key')
+
+	if secret is None or secret != SECRET_KEY:
+		error = json.dumps({'error': 'forbidden.'})
+		return json_response(error, 403)
+	
+	return None
