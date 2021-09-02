@@ -52,7 +52,7 @@ gcloud app deploy
 1. Get a serving url from existed file on Google Cloud Storage:
 
 ```
-curl https://PROJECT_NAME.appspot.com/image-url?bucket=mybuckey&image=image_name.jpg
+curl https://PROJECT_NAME.appspot.com/serving-url?bucket=mybuckey&image=image_name.jpg&secret_key=EXAMPLE_SECRET
 ```
 
 2. It will return a url that looks something like:
