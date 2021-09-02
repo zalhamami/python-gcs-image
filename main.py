@@ -62,7 +62,7 @@ def check_secret():
 	secret = request.args.get('secret_key')
 
 	if secret is None or secret != SECRET_KEY:
-		error = json.dumps({'error': 'forbidden.'})
-		return json_response(error, 403)
+		error = json.dumps({'error': 'Unauthorized.'})
+		return json_response(error, 401)
 	
 	return None
